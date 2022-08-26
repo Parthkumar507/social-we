@@ -5,7 +5,9 @@ let router=express.Router();
 
 router.get('/',homeController.home)
 
-router.get('/',homeController.home2)
+router.use('/users',require('./users'))
+router.use('/form',require('./form'))
+
 
 
 console.log('router is loaded')
