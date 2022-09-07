@@ -2,3 +2,15 @@ body{
     margin: 0px;
     text-align: center;
 }
+.create-form-content{
+    margin-left: 30%;
+    display: flex;
+    flex-direction: column;
+    /* flex-direction: ; */
+    align-items: flex-end;
+    width:25%;
+}
+.create-form-content>div>input{
+    margin-left:25px ;
+    margin-bottom: 5px;
+}
