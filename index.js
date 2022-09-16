@@ -4,8 +4,18 @@ const app=express();
 const port=8000;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
+const sassMiddleWare=require('node-sass-middleware')
 
 
+
+
+app.use(sassMiddleWare({
+    src:'./assets/scss',
+    dest:'./assets/css',
+    debug:true,
+    outputStyle:'extended',
+    prefix:'/css'
+}));
 
 //Used for session cookie + authentication
 const session =require('express-session')

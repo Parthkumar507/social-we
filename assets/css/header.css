@@ -1,0 +1,19 @@
+#header-nav {
+  background-color: blue;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 25px;
+  margin: 0px; }
+  #header-nav div {
+    margin-right: 15px;
+    display: flex;
+    flex-direction: row;
+    background-color: chartreuse; }
+  #header-nav #header-sign-in-sign-out {
+    display: flex;
+    flex-direction: row; }
+    #header-nav #header-sign-in-sign-out a {
+      text-decoration: none;
+      color: white; }
