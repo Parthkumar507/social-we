@@ -1,5 +1,6 @@
 const Post=require('../models/post')
 
+
 module.exports.postContent=function(req,res){
     Post.create({
         content:req.body.content,

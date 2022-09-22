@@ -1,5 +1,9 @@
 body {
   margin: 0px;
-  text-align: center; }
+  margin-left: 22px;
+
+   /* text-align: center; */
+  /* list-style: none;  */
+ }
   body #layout-main {
     height: 100vh; }
