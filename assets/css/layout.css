@@ -1,9 +1,7 @@
 body {
   margin: 0px;
-  margin-left: 22px;
-
-   /* text-align: center; */
-  /* list-style: none;  */
- }
+  text-align: center;
+  list-style: none; }
   body #layout-main {
-    height: 100vh; }
+    height: auto;
+    min-height: 100vh; }
