@@ -1,16 +1,36 @@
-<h1>
-    This is Codial <%=titleName%>
-</h1>
-<%if(locals.user){ %>
-    <form action="/post/create" id="new-post-form" method="post">
-        <textarea name="content" id="new-post-content" cols="30" rows="5" placeholder="type here.." required>
-        </textarea>
-        <input type="submit" value="post">
-    </form>
-    <% } %>
-        <div id="Post-display-div">
-            <%for(post of posts){%>
-               <%- include('_post') -%>
-                <%}%>
+<section >
 
-        </div>
+
+    <h1>
+        This is Codial <%=titleName%>
+    </h1>
+    <%if(locals.user){ %>
+        <form action="/post/create" id="new-post-form" method="post">
+            <textarea name="content" id="new-post-content" cols="30" rows="5" placeholder="type here.." required>
+        </textarea>
+            <input type="submit" value="post">
+        </form>
+        <% } %>
+            <div id="Post-display-div">
+                <ul>
+
+
+                    <%for(post of posts){%>
+                        <%- include('_post') -%>
+                            <%}%>
+                </ul>
+            </div>
+</section>
+
+<section>
+    <h4>Friends</h4>
+    <% for(u of all_users){ %>
+               
+        <p>     
+        <a href="/users/profile/<%=u.id%>">
+            <%=u.name%>
+        </a>    
+        </p>
+
+     <% } %>   
+</section>

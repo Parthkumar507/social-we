@@ -1,11 +1,15 @@
 body{
-    margin: 0px;
-    text-align: center;
+  
+    // text-align: center;
     list-style: none;
 
 #layout-main{
     // color:chocolate;
-
+    // margin-left: 35%;
+    position: relative;
+    left:35%;
+    min-width:30%;
+    max-width: 40%;
     height: auto;
     min-height: 100vh;
 }

@@ -1,7 +1,9 @@
 body {
-  margin: 0px;
-  text-align: center;
   list-style: none; }
   body #layout-main {
+    position: relative;
+    left: 35%;
+    min-width: 30%;
+    max-width: 40%;
     height: auto;
     min-height: 100vh; }

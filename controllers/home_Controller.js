@@ -1,4 +1,5 @@
 const Post=require('../models/post')
+const User=require('../models/user');
 module.exports.home=function(req,res){
     //cookie come as a req , but goes as a res
     // let x=req.cookies;
@@ -13,10 +14,13 @@ module.exports.home=function(req,res){
         }
     })
     .exec(function(err,posts){
-        return res.render('home',{
-            titleName:'Home',
-            posts:posts
-            
+        User.find({},function(err,users){
+            return res.render('home',{
+                titleName:'Home',
+                posts:posts,
+                all_users:users
+                
+            })
         })
     })
 }
