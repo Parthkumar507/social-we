@@ -1,20 +1,26 @@
 const Post=require('../models/post')
 const Comment=require('../models/comment')
 
+module.exports.postContent= async function(req,res){
+    try{
 
-module.exports.postContent=function(req,res){
-    Post.create({
-        content:req.body.content,
-        user:req.user._id
-    },function(err,post){
-        if(err){console.log('error in finding the Post ');return;}
-
+      await Post.create({
+            content:req.body.content,
+            user:req.user._id
+        })
         return res.redirect('back');
-    })
+
+    }catch(err){
+        console.log('Error ', err);
+        return;
+    }   
 }
-module.exports.destroy=function(req,res){
-    //finding the id , by the url
-    Post.findById(req.params.id,function(err,post){
+module.exports.destroy=async function(req,res){
+    
+    try{
+        //finding the id , by the url
+     let post=await Post.findById(req.params.id)
+    
 
         //checking the correct person
         //in req.user.id instead of _id , we use .id , bcoz it is converting into string
@@ -23,11 +29,14 @@ module.exports.destroy=function(req,res){
         if(post.user==req.user.id){
 
             post.remove();
-            Comment.deleteMany({post:req.param.id},function(err){
-             return res.redirect('back');   
-            })
-        }else{
-            return res.redirect('back'); 
+           await Comment.deleteMany({post:req.param.id})
+
         }
-    })
+            return res.redirect('back'); 
+
+    }catch(err){
+        console.log('Error ', err);
+        return;
+    }
+
 }
