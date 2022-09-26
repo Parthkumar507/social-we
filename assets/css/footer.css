@@ -1,8 +1,11 @@
 footer {
+  color: white;
   background-color: deeppink;
+  padding: 5px 10px;
   display: flex;
-  flex-direction: row;
-  padding: 10px;
-  font-size: 20px; }
-  footer #footer-home-profile {
-    margin-left: 55px; }
+  justify-content: flex-start; }
+  footer a {
+    color: white;
+    text-decoration: none; }
+  footer .footer-nav ul {
+    list-style: none; }

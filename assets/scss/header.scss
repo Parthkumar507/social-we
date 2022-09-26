@@ -1,28 +1,39 @@
-#header-nav{
-    background-color: blue;
+header{
+nav{
     color:white;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     font-size: 25px;
     margin: 0px;
-    div{
-        margin-right: 15px;
-        display: flex;
-    flex-direction: row;
-    background-color: chartreuse;
+    padding: 0 10px;
+    background: #2196f3;
+    box-shadow: 1px 1px 1px 1px lightgrey;
+
+    .mini-logo{
+        p{
+            margin: 5px;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
     }
-   #header-sign-in-sign-out{
-    display: flex;
-    flex-direction: row;
+   
     
-    
+    .auth-links{
+        ul{
+            margin: 5% 5px;
+            display: flex;
+            list-style: none;
+            li{
+                margin-right: 10px;
+            }
+        }
+    }
+
     a{
-        text-decoration: none;
         color: white;
-
+        text-decoration: none;
     }
-    
-   }
 
+}
 }
