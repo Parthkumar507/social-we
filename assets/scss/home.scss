@@ -4,7 +4,11 @@
     #feed-posts{
         width:70%;
         padding: 10px;
+        overflow-x: scroll;
     }
+    #feed-posts::-webkit-scrollbar {
+        display: none;
+      }
     #user-friends{
         width:30%;
         padding: 10px;

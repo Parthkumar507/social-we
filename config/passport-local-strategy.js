@@ -6,17 +6,19 @@ const User=require('../models/user')
 
 //authenitaction using passport
 passport.use(new LocalStrategy({
-    usernameField:'email'//This is based on schema
+    usernameField:'email',//This is based on schema
+    passReqToCallback:true
     }, 
-    function(email,password,done){
+    function(req,email,password,done){
         // Find a User and establish the identity
         User.findOne({email:email},function(err,user){//right email is value passed by function
             //left is prop , in schema
             if (err) { 
-                console.log('error in finding the user --> Passport')
+                // console.log('error in finding the user --> Passport')
+                req.flash('error',err)
                 return done(err); }
             if (!user   ||  user.password!=password) {
-                console.log('Invalid UserName/Password')
+                req.flash('error','Invalid UserName/Password')
                  return done(null, false);
                  }
             return done(null, user);
