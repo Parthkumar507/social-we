@@ -1,2 +1,29 @@
 body {
   background-color: aqua; }
+  body #layout-main .display-Profile {
+    width: 20%;
+    position: relative;
+    left: 30%;
+    padding-left: 55px;
+    margin-top: 20px;
+    background-color: bisque;
+    padding-bottom: 15px; }
+    body #layout-main .display-Profile form {
+      display: flex;
+      flex-direction: column; }
+      body #layout-main .display-Profile form input {
+        width: 200px;
+        margin-top: 5px; }
+    body #layout-main .display-Profile .image-preview {
+      display: flex;
+      flex-direction: column; }
+      body #layout-main .display-Profile .image-preview .image-preview_default_text {
+        color: red;
+        font-size: 30px; }
+      body #layout-main .display-Profile .image-preview .image-preview_image {
+        margin: 25px;
+        margin-left: 5px;
+        width: 250px;
+        height: 200px;
+        border: 2px solid transparent;
+        border-radius: 10%; }

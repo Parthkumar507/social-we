@@ -1,18 +1,33 @@
 <link rel="stylesheet" href="/css/user_profile.css">
-<h1>
-    User Profile 
-</h1>
-
+<div class="display-Profile">
+    
 <% if(user.id==profile_user.id) {%>
+
+    <div id="imagePreview" class="image-preview">
+        <span class="image-preview_default_text">Profile Picture</span>
+        <img src="<%=user.avatar%>" alt="<%=user.name%>" class="image-preview_image">
+    </div>    
     <!-- if users matches show update form -->
-<form action="/users/update/<%=profile_user.id%>" method="post">
+<form action="/users/update/<%=profile_user.id%>" enctype="multipart/form-data" method="POST">
     <input type="text" name="name" placeholder="Your name" value="<%=profile_user.name%>" required>
     <input type="email" name="email" placeholder="New email"  value="<%=profile_user.email%>" required>
+
+    <input type="file" name="avatar" id="inpFile" placeholder="Profile Picture" >
     <input type="submit" value="Update">
 </form>
 
     <%  }else {  %>
         <!-- else show its details -->
+
+        <div class="image-preview">
+            <span class="image-preview_default_text">Profile Picture</span>
+            <img src="<%=profile_user.avatar%>" alt="<%=profile_user.name%>" class="image-preview_image" width="150px">
+        </div>
+
         <p><%=profile_user.name%></p>
         <p><%=profile_user.email%></p>
     <%  }   %>
+</div>
+
+    <script src="/js/image_preview_handle.js"></script>
+   
