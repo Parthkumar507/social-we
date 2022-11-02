@@ -7,17 +7,15 @@ const User=require('../models/user')
 let opts={
     jwtFromRequest :ExtractJwt.fromAuthHeaderAsBearerToken(),
     secretOrKey :'codeial'
-    // ,
-    // issuer : 'accounts.examplesoft.com',
-    // audience :'yoursite.net'
 }
 
-passport.use(new JWTStrategy(opts, function(jwt_payload, done) {
-    User.findOne(jwt_payload._id, function(err, user) {
+passport.use(new JWTStrategy(opts, function(jwtPayLoad, done) {
+    User.findOne({id:jwtPayLoad.sub}, function(err, user) {
         if (err) {
             console.log('Error in finding the user from JWT')
             return done(err, false);
         }
+        // console.log('User in passport.use ',user.id)
         if (user) {
             return done(null, user);
         } else {
