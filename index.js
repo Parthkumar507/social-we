@@ -7,9 +7,15 @@ const db = require('./config/mongoose');
 const sassMiddleWare=require('node-sass-middleware')
 const flash =require('connect-flash')
 const customMware=require('./config/middleware')
+//Used for session cookie + authentication
+const session =require('express-session')
+const passport=require('passport')
+const passportLocal=require('./config/passport-local-strategy')
+const passportJWT=require('./config/passport-jwt-strategy')
+const passportGoogle=require('./config/passport-google-oauth2-strategy')
 
-
-
+const MongoStore=require('connect-mongo');
+const { connect } = require('mongoose');
 
 app.use(sassMiddleWare({
     src:'./assets/scss',
@@ -18,16 +24,6 @@ app.use(sassMiddleWare({
     outputStyle:'extended',
     prefix:'/css'
 }));
-
-//Used for session cookie + authentication
-const session =require('express-session')
-const passport=require('passport')
-const passportLocal=require('./config/passport-local-strategy')
-const passportJWT=require('./config/passport-jwt-strategy')
-
-const MongoStore=require('connect-mongo');
-const { connect } = require('mongoose');
-
 
 app.use(express.urlencoded({ extended: true }))
 
@@ -44,8 +40,6 @@ app.use(expressLayouts);
 // extract style and scripts from sub pages into the layout
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
-
-
 
 // set up the view engine
 app.set('view engine','ejs')
@@ -83,8 +77,6 @@ app.use(customMware.setflash)
 
 // use express router
 app.use('/',require('./routes/index.js'))
-
-
 
 app.listen(port,function(err){
     if(err){
