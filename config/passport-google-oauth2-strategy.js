@@ -9,11 +9,11 @@ const User=require('../models/user')
 
 passport.use(new GoogleStrategy({
     clientID: "488583160350-0u8hb51r12uftp8ijjed8sgjq17g9bhl.apps.googleusercontent.com",
-    clientSecret: "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",
-    callbackURL: "https://localhost:8000/users/auth/google/callback",
-    passReqToCallback   : true,
-    scope: [ 'profile','email' ],
-    state: true
+    clientSecret: "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",
+    callbackURL: "http://localhost:8000/users/auth/google/callback"
+    // passReqToCallback   : true,
+    // scope: [ 'profile','email' ],
+    // state: true
     
 },    function(accessToken, refreshToken, profile, done){
     // find a user
