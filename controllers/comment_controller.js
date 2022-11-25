@@ -15,7 +15,7 @@ module.exports.postComment = async function (req, res) {
       post.comments.push(comment);
       post.save();
 
-      comment = await comment.populate('user', 'name email').execPopulate();
+      comment = await comment.populate('user', 'name email')
       commentMailer.newComment(comment)
       if (req.xhr){
         // Similar for comments to fetch the user's id!
