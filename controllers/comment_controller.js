@@ -20,13 +20,14 @@ module.exports.postComment = async function (req, res) {
       if (req.xhr){
         // Similar for comments to fetch the user's id!
       
-        return res.status(200).json({
+      return  res.status(200).json({
             data: {
                 comment: comment
             },
             message: "Post created!"
         });
     }
+
       req.flash('success','Comment Added!')
 
       return res.redirect("/");

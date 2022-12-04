@@ -58,10 +58,10 @@ module.exports.destroy=async function(req,res){
         if(post.user==req.user.id){
 
             post.remove();
+           await Comment.deleteMany({post:req.params.id})
 
-           await Comment.deleteMany({post:req.param.id})
            if(req.xhr){
-
+            console.log("Inside the xhr request ")
             return res.status(200).json({
                 
                 data:{
@@ -69,6 +69,7 @@ module.exports.destroy=async function(req,res){
                 },
                 message:"Post Deleted"
             })
+
            }
 
 

@@ -3,7 +3,19 @@
     <p>Hi <%= comment.user.name%>!</p>
     <br>
     <br>
-    <p>Your comment <strong><%= comment.content %></strong> just got pubished on codeial.</p>
+        
+        <% if (comment.content.length< 5){%>
+            <p>Your comment <strong><%= comment.content %></strong> just got pubished on codeial.</p>
+        <%}else{ %>
+            <p>Your comment <strong>
+                <% for(let i=0;i<4;i++){%>
+                    <!-- <%=comment.content[i]%>  -->
+                    <%=i%>
+                <%} %>
+                <!-- <%_ }); -%> -->
+
+            </strong>... just got pubished on codeial.</p>
+        <%}%>
     <br>
     <br>
     <p>Thanks!</p>
