@@ -18,16 +18,17 @@ module.exports.postComment = async function (req, res) {
       post.save();
 
       comment = await comment.populate('user', 'name email')
-      commentMailer.newComment(comment)
+      //when not using redis
+      // commentMailer.newComment(comment)
 
-      let job=queue.create('emails',comment).save(function(err){
+      let job=queue.create('commenter-email',comment).save(function(err){
         if(err){
           console.log('error in sending to the queue ', err);
           return ;
         }
-        console.log('job enqueued ')
+        console.log('job enqueued ',job.id)
+        // commentEmailWorker.process(job);
       })
-
 
 
       if (req.xhr){
