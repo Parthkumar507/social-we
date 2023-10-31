@@ -3,7 +3,17 @@
     <p>Hi <%= comment.user.name%>!</p>
     <br>
     <br>
-    <p>Your comment <strong><%= comment.content %></strong> just got pubished on codeial.</p>
+        
+        <!-- <% if (comment.content.length< 5){%>
+        <%}else{ %>
+            <p>Your comment <strong>
+               
+                 <%=comment.content%>  
+            </strong>... just got pubished on codeial.</p>
+        <%}%> -->
+
+        <p>Your comment <strong><%= comment.content %></strong> just got pubished on codeial.</p>
+
     <br>
     <br>
     <p>Thanks!</p>

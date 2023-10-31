@@ -17,6 +17,15 @@ const passportGoogle=require('./config/passport-google-oauth2-strategy')
 const MongoStore=require('connect-mongo');
 const { connect } = require('mongoose');
 
+// const redis = require('redis');
+
+// let redisClient = redis.createClient({
+//     url: 'redis://redis:6379',
+//     legacyMode: true,
+// });
+
+
+
 app.use(sassMiddleWare({
     src:'./assets/scss',
     dest:'./assets/css',
